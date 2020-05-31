@@ -1,4 +1,41 @@
-{   
-    "categories":[],
-    "products":[]
+{
+  "categories": [
+ 
+    {
+      "name": "cars",
+      "description": "cars",
+      "display_name": "cars",
+      "id": 1
+    },
+    {
+      "name": "electronices",
+      "description": "electronices",
+      "display_name": "electronices",
+      "id": 2
+    }
+  ],
+  "products": [
+    {"count":""},
+    {
+      "category": "electronices",
+      "name": "camera",
+      "display_name": "cannon",
+      "description": "25 MP",
+      "id": 1
+    },
+    {
+      "category": "electronices",
+      "name": "smart Phone",
+      "display_name": "iphone 11 ",
+      "description": "test",
+      "id": 2
+    },
+    {
+      "category": "cars",
+      "name": "BMW",
+      "display_name": "M3 2020",
+      "description": "50000$",
+      "id": 3
+    }
+  ]
 }
