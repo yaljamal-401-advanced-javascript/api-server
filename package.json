@@ -7,7 +7,10 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon",
+    "lint": "eslint '**/*.js'",
+    "test": "jest --coverage --verbose"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,14 @@
   },
   "homepage": "https://github.com/yaljamal-401-advanced-javascript/api-server#readme",
   "dependencies": {
-    "httpie": "^1.1.2"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "httpie": "^1.1.2",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.1.0",
+    "jest": "^26.0.1",
+    "lint": "^0.7.0"
   }
 }
