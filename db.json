@@ -1,6 +1,5 @@
 {
   "categories": [
-    ["count ="],
     {
       "name": "cars",
       "description": "cars",
@@ -15,7 +14,6 @@
     }
   ],
   "products": [
-    {"count":""},
     {
       "category": "electronices",
       "name": "camera",
