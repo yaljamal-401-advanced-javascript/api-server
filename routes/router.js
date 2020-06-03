@@ -17,7 +17,6 @@ function getModel(req, res, next) {
     req.model=products;
     next();
     return;
-
   default:
     next('Invaled Model');
     return;
