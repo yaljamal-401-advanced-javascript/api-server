@@ -28,20 +28,32 @@ describe('catogry Modle ',()=>{
       });
     });
   });
-  //   it('put(id)',()=>{
-  //     let newObj={
-  //       category: 'electronices',
-  //       name: 'smart phone',
-  //       display_name: 'iphone 11',
-  //       description: '512 GB',
-  //     };
-  //     return catogry.get(obj.id).then((result)=>{
-  //       catogry.update(result._id,newObj).then(record=>{
-  //         Object.keys(record).forEach((keys)=>{
-  //           expect(newObj[0][keys]).toEqual(result[keys]);
-  //         });
-  //       });
-  //     });
-  //   });
+  it('put(id)',()=>{
+    let newObj={
+      name: 'cars',
+      description: 'cars',
+      display_name: 'cars',
+    };
+    return catogry.get().then((result) => {
+      const id = result[0]._id;
+      return catogry.update(id,newObj).then((result) => {
+        Object.keys(newObj).forEach((key) => {
+          expect(result[key]).toEqual(newObj[key]);
+        });
+      });
+    });
+  
+  });
+
+  it('delete', () => {
+    return catogry.get().then((result) => {
+      const id = result[0]._id;
+      return catogry.delete(id).then((result) => {
+        return catogry.get().then((result2) => {
+          expect(result2).toEqual([]);
+        });
+      });
+    });
+  });
 
 });
