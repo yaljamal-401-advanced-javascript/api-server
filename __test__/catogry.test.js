@@ -6,24 +6,24 @@ const obj = {
   description: 'electronices',
   display_name: 'electronices',
 };
-describe('catogry Modle ',()=>{
-  it('create ()',()=>{
-    return catogry.create(obj).then((result)=>{
-      Object.keys(obj).forEach((keys)=>{
+describe('catogry Modle ', () => {
+  it('create ()', () => {
+    return catogry.create(obj).then((result) => {
+      Object.keys(obj).forEach((keys) => {
         expect(result[keys]).toEqual(obj[keys]);
       });
     });
   });
-  it('get ()',()=>{
-    return catogry.get().then((result)=>{
-      Object.keys(obj).forEach((keys)=>{
+  it('get ()', () => {
+    return catogry.get().then((result) => {
+      Object.keys(obj).forEach((keys) => {
         expect(result[0][keys]).toEqual(obj[keys]);
       });
     });
   });
-  it('get(id)',()=>{
-    return catogry.get(obj.id).then((result)=>{
-      Object.keys(obj).forEach((keys)=>{
+  it('get(id)', () => {
+    return catogry.get(obj.id).then((result) => {
+      Object.keys(obj).forEach((keys) => {
         expect(result[0][keys]).toEqual(obj[keys]);
       });
     });
@@ -55,5 +55,6 @@ describe('catogry Modle ',()=>{
       });
     });
   });
+
 
 });

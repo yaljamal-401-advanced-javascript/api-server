@@ -6,7 +6,7 @@
 
 ### Links and Resources
 
-* [submission PR](https://github.com/yaljamal-401-advanced-javascript/api-server/pull/10)
+* [submission PR](https://github.com/yaljamal-401-advanced-javascript/api-server/pull/12)
 
 ### Documentaion
 
