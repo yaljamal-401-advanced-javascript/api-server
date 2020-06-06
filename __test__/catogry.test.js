@@ -1,6 +1,6 @@
 'use strict';
 require('@code-fellows/supergoose');
-const catogry = require('../models/catogry-model.js');
+const catogry = require('../lib/models/catogry/catogry-model.js');
 const obj = {
   name: 'electronices',
   description: 'electronices',

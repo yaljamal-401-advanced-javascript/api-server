@@ -11,7 +11,7 @@ describe('products routes  ' , ()=>{
       display_name: 'iphone 11',
       description: '512 GB',
     };
-    return mockRequest.post('/products')
+    return mockRequest.post('/api/v1/products')
       .send(obj)
       .then((result)=>{
         const record=result.body;
@@ -28,10 +28,10 @@ describe('products routes  ' , ()=>{
       display_name: 'iphone 11',
       description: '512 GB',
     };
-    return mockRequest.post('/products')
+    return mockRequest.post('/api/v1/products')
       .send(obj)
       .then((result)=>{
-        return mockRequest.get('/products')
+        return mockRequest.get('/api/v1/products')
           .then((item)=>{
             Object.keys(obj).forEach(key=>{
               expect(item.body.result[1][key]).toEqual(obj[key]);
