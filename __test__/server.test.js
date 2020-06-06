@@ -1,22 +1,43 @@
 'use strict';
 const {server}=require('../lib/server.js');
-const supertest=require('supertest');
-const mockRequest=supertest(server);
+const supergoose=require('@code-fellows/supergoose');
+const mockRequest=supergoose(server);
 
-describe('server ' , ()=>{
-  it('should respond with 404 on an invalid route',()=>{
-    return mockRequest.get('/item').then((result)=>{
-      expect(result.status).toBe(404);
-    });
+describe('products routes  ' , ()=>{
+  it('it sholud post the new Product',()=>{
+    let obj={
+      category: 'electronices',
+      name: 'smart phone',
+      display_name: 'iphone 11',
+      description: '512 GB',
+    };
+    return mockRequest.post('/products')
+      .send(obj)
+      .then((result)=>{
+        const record=result.body;
+        console.log(record);
+        Object.keys(obj).forEach(key=>{
+          expect(record[key]).toEqual(obj[key]);
+        });
+      });
   });
-  it('should respond with 404 on an invalid method',()=>{
-    return mockRequest.copy('/item').then((result)=>{
-      expect(result.status).toBe(404);
-    });
+  it('it sholud get the new Product',()=>{
+    let obj={
+      category: 'electronices',
+      name: 'smart phone',
+      display_name: 'iphone 11',
+      description: '512 GB',
+    };
+    return mockRequest.post('/products')
+      .send(obj)
+      .then((result)=>{
+        return mockRequest.get('/products')
+          .then((item)=>{
+            Object.keys(obj).forEach(key=>{
+              expect(item.body.result[1][key]).toEqual(obj[key]);
+            });
+          });
+      });
   });
-//   it('should respond with 200 on on /categories',()=>{
-//     return mockRequest.get('/categories').then((result)=>{
-//       expect(result.status).toBe(200);
-//     });
-//   });
+  
 });

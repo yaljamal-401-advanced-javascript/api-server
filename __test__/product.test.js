@@ -24,25 +24,38 @@ describe('Product Modle ',()=>{
   });
   it('get(id)',()=>{
     return product.get(obj.id).then((result)=>{
+      // console.log(result);
       Object.keys(obj).forEach((keys)=>{
         expect(result[0][keys]).toEqual(obj[keys]);
       });
     });
   });
-  //   it('put(id)',()=>{
-  //     let newObj={
-  //       category: 'electronices',
-  //       name: 'smart phone',
-  //       display_name: 'iphone 11',
-  //       description: '512 GB',
-  //     };
-  //     return product.get(obj.id).then((result)=>{
-  //       product.update(result._id,newObj).then(record=>{
-  //         Object.keys(record).forEach((keys)=>{
-  //           expect(newObj[0][keys]).toEqual(result[keys]);
-  //         });
-  //       });
-  //     });
-  //   });
+  it('put(id)',()=>{
+    let newObj={
+      category: 'electronices',
+      name: 'smart phone',
+      display_name: 'iphone 11',
+      description: '512 GB',
+    };
+    return product.get().then((result) => {
+      const id = result[0]._id;
+      return product.update(id,newObj).then((result) => {
+        Object.keys(newObj).forEach((key) => {
+          expect(result[key]).toEqual(newObj[key]);
+        });
+      });
+    });
+  
+  });
 
+  it('delete', () => {
+    return product.get().then((result) => {
+      const id = result[0]._id;
+      return product.delete(id).then((result) => {
+        return product.get().then((result2) => {
+          expect(result2).toEqual([]);
+        });
+      });
+    });
+  });
 });
