@@ -1,6 +1,6 @@
 'use strict';
 require('@code-fellows/supergoose');
-const product = require('../models/produtes-model.js');
+const product = require('../lib/models/product/produtes-model.js');
 const obj = {
   category: 'electronices',
   name: 'camera',
